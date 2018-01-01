@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar fixed app :clipped-left="true">
+  <v-toolbar dark fixed app :clipped-left="true" class="primary">
     <v-toolbar-side-icon @click.stop="handleSwitchToggle"/>
     <v-toolbar-title v-text="title"/>
     <v-spacer/>
