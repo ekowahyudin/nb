@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer app fixed clipped :value="open">
     <v-list>
-      <v-list-tile value="true" v-for="(item, i) in items" :key="i">
+      <v-list-tile value="true" v-for="(item, i) in menuItems" :key="i" @click.end="handleMenuClick(i)">
         <v-list-tile-action>
           <v-icon v-html="item.icon"></v-icon>
         </v-list-tile-action>
@@ -14,19 +14,32 @@
 </template>
 
 <script>
+
 export default {
   name: 'NavigationDrawer',
   data () {
     return {
-      items: [{
-        icon: 'bubble_chart',
-        title: 'Inspire'
-      }]
+    }
+  },
+  methods: {
+    handleMenuClick (index) {
+      let menu = this.menuItems[index]
+      let page = menu.page
+      if (page && page.length > 0) {
+        this.$router.push({name: page})
+        return
+      }
+      let action = menu.action
+      if (action) {
+        action(this)
+      } else {
+        alert('No action for ' + this.menuItems[index].title + ' yet ')
+      }
     }
   },
   computed: {
   },
-  props: ['open']
+  props: ['open', 'menu-items']
 }
 </script>
 

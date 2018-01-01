@@ -1,17 +1,12 @@
 <template>
   <div>
-    {{msg}}
+    User Sign in page 
   </div>
 </template>
 
 <script>
 export default {
-  name: 'UserSignIn',
-  data () {
-    return {
-      msg: 'User SignIn'
-    }
-  }
+  name: 'UserSignIn'
 }
 </script>
 

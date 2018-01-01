@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <navigation-drawer :open="drawer"/>
-    <top-menu-bar :on-drawer-toggle="() => {drawer = !drawer}" :title="title"/>
+    <navigation-drawer :open="isDrawerOpen" :menu-items="drawerMenuItems"/>
+    <top-menu-bar :on-drawer-toggle="() => {isDrawerOpen = !isDrawerOpen}" :title="title"/>
     <main-content/>
     <footer-bar :message="footerMsg"/>
   </v-app>
@@ -16,9 +16,23 @@
   export default {
     data () {
       return {
-        drawer: false,
+        isDrawerOpen: false,
         title: 'Niaga Baru',
-        footerMsg: '&copy; 2018 NiagaBaru.com'
+        footerMsg: '&copy; 2018 NiagaBaru.com',
+        drawerMenuItems: [
+          {
+            icon: 'bubble_chart',
+            title: 'Inspire'
+          },
+          {
+            title: 'Daftar',
+            page: 'UserSignUp'
+          },
+          {
+            title: 'Masuk',
+            page: 'UserSignIn'
+          }
+        ]
       }
     },
     methods: {

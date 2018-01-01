@@ -11,24 +11,24 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
+      path: '/'
     },
     {
-      path: '/pengguna/daftar',
       name: 'UserSignUp',
-      comporent: UserSignUp
+      component: UserSignUp,
+      path: '/pengguna/daftar'
     },
     {
-      path: '/pengguna/masuk',
       name: 'UserSignIn',
-      comporent: UserSignIn
+      component: UserSignIn,
+      path: '/pengguna/masuk'
     },
     {
-      path: '/produk/cari',
       name: 'ProductSearch',
-      comporent: ProductSearch
+      component: ProductSearch,
+      path: '/produk/cari'
     }
   ]
 })
