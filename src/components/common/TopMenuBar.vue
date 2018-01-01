@@ -1,7 +1,6 @@
 <template>
   <v-toolbar fixed app :clipped-left="true">
     <v-toolbar-side-icon @click.stop="handleSwitchToggle"/>
-    <v-spacer/>
     <v-toolbar-title v-text="title"/>
     <v-spacer/>
   </v-toolbar>

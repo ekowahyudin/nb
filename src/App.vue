@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <navigation-drawer :open="isDrawerOpen" :menu-items="drawerMenuItems"/>
-    <top-menu-bar :on-drawer-toggle="() => {isDrawerOpen = !isDrawerOpen}" :title="title"/>
+    <navigation-drawer :open="isDrawerOpen" :menu-items="drawerMenuItems" :on-menu-click="drawerMenuClick"/>
+    <top-menu-bar :on-drawer-toggle="toggleDrawerMenu" :title="title"/>
     <main-content/>
     <footer-bar :message="footerMsg"/>
   </v-app>
@@ -36,6 +36,19 @@
       }
     },
     methods: {
+      toggleDrawerMenu () {
+        this.isDrawerOpen = !this.isDrawerOpen
+      },
+      drawerMenuClick (menuIndex) {
+        let menu = this.drawerMenuItems[menuIndex]
+        let page = menu.page
+        if (page) {
+          this.toggleDrawerMenu()
+          this.$router.push({name: page})
+        } else {
+          console.log('No action for menu ' + menu.title)
+        }
+      }
     },
     components: {
       'navigation-drawer': NavigationDrawer,
