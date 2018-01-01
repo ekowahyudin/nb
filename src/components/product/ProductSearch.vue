@@ -1,15 +1,15 @@
 <template>
   <div>
-    {msg}
+    {{msg}}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'UserSignin',
+  name: 'ProductSearch',
   data () {
     return {
-      msg: 'User Signin'
+      msg: 'Product Search'
     }
   }
 }
