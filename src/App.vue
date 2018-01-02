@@ -12,6 +12,7 @@
   import TopMenuBar from '@/components/common/TopMenuBar.vue'
   import FooterBar from '@/components/common/FooterBar.vue'
   import MainContent from '@/components/common/MainContent.vue'
+  import ProductSearch from '@/components/product/ProductSearch.vue'
 
   export default {
     data () {
@@ -21,16 +22,64 @@
         footerMsg: '&copy; 2018 NiagaBaru.com',
         drawerMenuItems: [
           {
-            icon: 'bubble_chart',
-            title: 'Inspire'
+            icon: 'home',
+            title: 'Beranda',
+            page: 'Home'
           },
           {
+            icon: 'search',
+            title: 'Cari Barang',
+            page: 'ProductSearch'
+          },
+          {
+            icon: 'card_giftcard',
+            title: 'Diskon dan Bonus'
+          },
+          {
+            icon: 'stars',
+            title: 'Ditandai'
+          },
+          {
+            icon: 'local_grocery_store',
+            title: 'Keranjang Belanja'
+          },
+          {
+            icon: 'payment',
+            title: 'Pembayaran'
+          },
+          {
+            icon: 'flight_takeoff',
+            title: 'Pengiriman'
+          },
+          {
+            icon: 'store',
+            title: 'Toko Saya'
+          },
+          {
+            icon: 'textsms',
+            title: 'Pesan'
+          },
+          {
+            icon: 'settings',
+            title: 'Pengaturan Situs'
+          },
+          {
+            icon: 'assignment_ind',
             title: 'Daftar',
             page: 'UserSignUp'
           },
           {
+            icon: 'vpn_key',
             title: 'Masuk',
             page: 'UserSignIn'
+          },
+          {
+            icon: 'exit_to_app',
+            title: 'Keluar'
+          },
+          {
+            icon: 'feedback',
+            title: 'Kirim Masukan'
           }
         ]
       }
