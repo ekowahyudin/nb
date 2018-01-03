@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueFire from 'vueFire'
+import VueFire from 'vuefire'
 
 import {
   Vuetify,
