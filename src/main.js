@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueFire from 'vueFire'
 
 import {
   Vuetify,
@@ -17,6 +18,7 @@ import '../node_modules/vuetify/src/stylus/app.styl'
 import App from './App'
 import router from './router'
 
+Vue.use(VueFire)
 Vue.use(Vuetify, {
   components: {
     VApp,
