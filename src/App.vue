@@ -12,7 +12,6 @@
   import TopMenuBar from '@/components/common/TopMenuBar.vue'
   import FooterBar from '@/components/common/FooterBar.vue'
   import MainContent from '@/components/common/MainContent.vue'
-  import ProductSearch from '@/components/product/ProductSearch.vue'
 
   export default {
     data () {
