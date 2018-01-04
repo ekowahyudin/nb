@@ -1,3 +1,5 @@
+import auth from '../engine/auth'
+
 export default {
   state: {
   },
@@ -6,5 +8,8 @@ export default {
   mutations: {
   },
   actions: {
+    registerWithEmailAndPassword (email, password, realName) {
+      return auth.registerWithEmailAndPassword(email, password, realName)
+    }
   }
 }
