@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueFire from 'vueFire'
+import {store} from './store'
 
 import {
   Vuetify,
@@ -47,6 +48,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   render: h => h(App)
 })
