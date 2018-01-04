@@ -11,7 +11,7 @@ export default {
     if (!user) {
       return ''
     } else {
-      return user.getUserID
+      return user.uid
     }
   },
 
