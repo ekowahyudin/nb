@@ -31,7 +31,12 @@ export default {
   methods: {
     submit () {
       let self = this
-      self.$store.dispatch('user/createUserWithEmailAndPassword', self.email, self.email, self.password)
+      const payload = {
+        email: self.email,
+        password: self.password,
+        fullName: self.fullName
+      }
+      self.$store.dispatch('user/createWithEmailAndPassword', payload)
     }
   }
 }

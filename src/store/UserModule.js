@@ -9,10 +9,8 @@ export default {
   mutations: {
   },
   actions: {
-    registerWithEmailAndPassword (email, password, realName) {
-      console.log('UserModule')
-      alert('UserModule')
-      return auth.registerWithEmailAndPassword(email, password, realName)
+    createWithEmailAndPassword (state, payload) {
+      return auth.createUserWithEmailAndPassword(payload.email, payload.password, payload.fullName)
     }
   }
 }
