@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer app fixed clipped :value="open">
+  <v-navigation-drawer app fixed clipped right temporary :value="open">
     <v-list>
       <v-list-tile value="true" v-for="(item, i) in menuItems" :key="i" @click="handleMenuClick(i)">
         <v-list-tile-action>
