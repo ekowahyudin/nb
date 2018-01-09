@@ -4,6 +4,7 @@ import {store} from './store'
 import {
   Vuetify,
   VApp,
+  VCard,
   VNavigationDrawer,
   VFooter,
   VList,
@@ -21,6 +22,7 @@ import router from './router'
 Vue.use(Vuetify, {
   components: {
     VApp,
+    VCard,
     VNavigationDrawer,
     VFooter,
     VList,
