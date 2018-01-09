@@ -1,5 +1,5 @@
 <template>
-  <v-footer fixed app>
+  <v-footer fixed app class="primary">
     <span v-html="message"></span>
   </v-footer>
 </template>
