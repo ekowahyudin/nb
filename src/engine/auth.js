@@ -3,7 +3,7 @@
  */
 import firebase from './firebase'
 
-const auth = firebase.auth
+const auth = firebase.auth()
 let user = null
 
 export default {
@@ -40,14 +40,14 @@ export default {
         // send email verification
         user.sendEmailVerification()
         .catch((e) => warning.push(e))
-        .done(checkResolve)
+        .then(checkResolve)
 
         // update display name
         if (realName) {
           jobCounter++
           user.updateProfile({displayName: realName})
           .catch((e) => warning.push(e))
-          .done(checkResolve)
+          .then(checkResolve)
         }
       })
       .catch((e) => reject(e))
