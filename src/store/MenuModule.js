@@ -50,7 +50,7 @@ export default {
         {
           icon: 'assignment_ind',
           title: 'Daftar',
-          page: 'UserSignUp'
+          busEvent: 'UserSignUp'
         },
         {
           icon: 'vpn_key',

@@ -5,13 +5,16 @@ import {
   Vuetify,
   VApp,
   VCard,
+  VDialog,
   VNavigationDrawer,
   VFooter,
   VList,
   VBtn,
   VIcon,
   VGrid,
+  VSelect,
   VToolbar,
+  VTextField,
   transitions
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
@@ -23,13 +26,16 @@ Vue.use(Vuetify, {
   components: {
     VApp,
     VCard,
+    VDialog,
     VNavigationDrawer,
     VFooter,
     VList,
     VBtn,
     VIcon,
     VGrid,
+    VSelect,
     VToolbar,
+    VTextField,
     transitions
   },
   theme: {
