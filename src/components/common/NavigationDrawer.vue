@@ -18,8 +18,14 @@
 export default {
   name: 'NavigationDrawer',
   created () {
-    this.bus.$on('openDrawerMenu', () => {
+    let bus = this.bus
+
+    bus.$on('openDrawerMenu', () => {
       this.open = !this.open
+    })
+
+    bus.$on('closeDrawerMenu', () => {
+      this.open = false
     })
   },
   data () {
