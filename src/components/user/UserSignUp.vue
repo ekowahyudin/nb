@@ -9,48 +9,50 @@
         <v-card-text>
           <v-container grid-list-md>
             <v-layout wrap>
-              <v-flex xs12 sm6 md4>
-                <v-text-field label="Legal first name" required></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm6 md4>
-                <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm6 md4>
-                <v-text-field label="Legal last name" hint="example of persistent helper text"
-                  persistent-hint
+              <v-flex xs12>
+                <v-text-field 
+                  label="Nama Lengkap" 
+                  hint="Nama lengkap anda" 
+                  v-model="fullName"
+                  :rules="[() => fullName.length > 1 || 'Wajib diisi']"
                   required
                 ></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field label="Email" required></v-text-field>
+                <v-text-field
+                  label="Email"
+                  type="email"
+                  v-model="email"
+                  hint="Alamat surat elektronik anda"
+                  required
+                ></v-text-field>
               </v-flex>
               <v-flex xs12>
-                <v-text-field label="Password" type="password" required></v-text-field>
-              </v-flex>
-              <v-flex xs12 sm6>
-                <v-select
-                  label="Age"
+                <v-text-field
+                  label="Password"
+                  type="password"
+                  v-model="password"
+                  hint="Kata kunci"
+                  :rules="[() => first.length > 8 || 'Minimal karakter, harus terdiri dari huruf dan angka serta karakter khusus']"
                   required
-                  :items="['0-17', '18-29', '30-54', '54+']"
-                ></v-select>
+                ></v-text-field>
               </v-flex>
-              <v-flex xs12 sm6>
-                <v-select
-                  label="Interests"
-                  multiple
-                  autocomplete
-                  chips
-                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                ></v-select>
+              <v-flex xs12>
+                <v-text-field required label="Kata kunci (Konfirmasi)" type="password" hint="Kata kunci (sekali lagi)"></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>
-          <small>*indicates required field</small>
+          <div>
+            <small>*Wajib diisi</small>
+          </div>
+          <div>
+            <small>Jika anda sudah mendaftar sebelumnya klik <a href="#">disini</a> untuk masuk</small>
+          </div>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" flat @click.native="dialog = false">Close</v-btn>
-          <v-btn color="blue darken-1" flat @click.native="dialog = false">Save</v-btn>
+          <v-btn color="grey darken-1" flat @click.native="dialog = false">Batal</v-btn>
+          <v-btn color="green" @click.native="submit">Daftar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -84,6 +86,8 @@ export default {
         fullName: self.fullName
       }
       self.$store.dispatch('user/createWithEmailAndPassword', payload)
+
+      this.dialog = false
     }
   },
   props: ['bus']
