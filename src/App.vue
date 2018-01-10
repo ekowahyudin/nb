@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <navigation-drawer :open="isDrawerOpen" :menu-items="drawerMenuItems" :on-menu-click="drawerMenuClick"/>
+    <navigation-drawer :bus="bus" :menu-items="drawerMenuItems" :on-menu-click="drawerMenuClick"/>
     <top-menu-bar :on-drawer-toggle="toggleDrawerMenu" :title="title"/>
     <main-content/>
     <footer-bar :message="footerMsg"/>
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import NavigationDrawer from '@/components/common/NavigationDrawer.vue'
   import TopMenuBar from '@/components/common/TopMenuBar.vue'
   import FooterBar from '@/components/common/FooterBar.vue'
@@ -18,10 +19,10 @@
   export default {
     data () {
       return {
-        bus: this,
+        bus: new Vue(),
         footerMsg: '&copy; 2018 NiagaBaru.com',
         isDrawerOpen: false,
-        title: 'Niaga Baru'
+        title: 'NiagaBaru'
       }
     },
     computed: {
@@ -31,7 +32,7 @@
     },
     methods: {
       toggleDrawerMenu () {
-        this.isDrawerOpen = !this.isDrawerOpen
+        this.bus.$emit('openDrawerMenu')
       },
       drawerMenuClick (menuIndex) {
         let menu = this.drawerMenuItems[menuIndex]
@@ -41,7 +42,7 @@
           this.toggleDrawerMenu()
           this.$router.push({name: page})
         } else if (bus) {
-          this.$emit(bus)
+          this.bus.$emit(bus)
         } else {
           console.log('No action for menu ' + menu.title)
         }

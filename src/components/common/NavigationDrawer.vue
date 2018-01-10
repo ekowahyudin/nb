@@ -1,6 +1,6 @@
 <template>
-  <v-navigation-drawer app fixed clipped right temporary :value="open">
-    <v-list>
+  <v-navigation-drawer app fixed clipped right temporary v-model="open">
+    <v-list dense>
       <v-list-tile value="true" v-for="(item, i) in menuItems" :key="i" @click="handleMenuClick(i)">
         <v-list-tile-action>
           <v-icon v-html="item.icon"></v-icon>
@@ -17,8 +17,14 @@
 
 export default {
   name: 'NavigationDrawer',
+  created () {
+    this.bus.$on('openDrawerMenu', () => {
+      this.open = !this.open
+    })
+  },
   data () {
     return {
+      open: false
     }
   },
   methods: {
@@ -31,7 +37,7 @@ export default {
   },
   computed: {
   },
-  props: ['open', 'menu-items', 'on-menu-click']
+  props: ['bus', 'menu-items', 'on-menu-click']
 }
 </script>
 
